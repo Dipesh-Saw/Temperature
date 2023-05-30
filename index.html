@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Temprature Converter</title>
+
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+
+                /* background-image: url("https://images.unsplash.com/photo-1419833173245-f59e1b93f9ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3VubnklMjB3ZWF0aGVyfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60");
+                background-repeat: no-repeat;
+                background-size: 100% 100vh; */
+        }
+        #heading {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            margin-top: 0;
+            margin-bottom: 50px;
+
+            /* background-color: blueviolet; */
+        }
+
+        .container {
+            margin: 10% 20%;
+            text-align: center;
+            background-color: rgb(73, 122, 213);
+            padding: 5%;
+            border-radius: 20px;
+            box-shadow: 4px 5px 10px 2px;
+        }
+
+        .inp-div {
+            background-color: white;
+            padding: 10px 25px;
+            min-width: 10px;
+            display: inline-block;
+            border-radius: 20px;
+            margin: 10px;
+
+        }
+
+        .inp
+        {
+            border: 0px solid;
+            text-align: center;
+            padding: 8px 20px;
+            font-weight: bold;
+            font-size: 28px;
+            width: 200px;
+
+            outline: none;
+        }
+
+        label {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1 id="heading">Temprature</h1>
+
+        <div class="inp-div">
+
+            <label>Celsius</label><br>
+            <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="inp-div">
+
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" class="inp">
+        </div>
+
+    </div>
+
+
+
+    <script>
+        let cel = document.getElementById("cel");
+        let fah = document.getElementById("fah");
+
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+
+            f = f.toFixed(2);
+
+            fah.value = f;
+        })
+
+        fah.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+
+            c=c.toFixed(4);
+
+            cel.value = c;
+        })
+    </script>
+</body>
+
+</html>
